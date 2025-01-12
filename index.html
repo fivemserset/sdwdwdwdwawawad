@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vile.so</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: black;
+            margin: 0;
+            color: white;
+        }
+        video {
+            max-width: 90%;
+            height: auto;
+            outline: none;
+        }
+        audio {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <video id="video" controls>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <audio id="audio">
+        <source src="audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <script>
+        const video = document.getElementById('video');
+        const audio = document.getElementById('audio');
+
+        video.addEventListener('play', () => {
+            audio.currentTime = video.currentTime;
+            audio.play();
+        });
+
+        video.addEventListener('pause', () => {
+            audio.pause();
+        });
+
+        video.addEventListener('timeupdate', () => {
+            if (Math.abs(audio.currentTime - video.currentTime) > 0.1) {
+                audio.currentTime = video.currentTime;
+            }
+        });
+
+        video.addEventListener('seeking', () => {
+            audio.currentTime = video.currentTime;
+        });
+
+        video.addEventListener('ended', () => {
+            audio.pause();
+        });
+    </script>
+</body>
+</html>
