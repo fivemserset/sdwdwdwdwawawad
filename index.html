@@ -3,94 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vile.so</title>
+    <meta property="og:title" content="Vile.so API - Multi-Purpose OSINT API">
+    <meta property="og:description" content="Looking to get a lot of OSINT APIs all in one? Vile.so API offers a variety of APIs at extremely cheap prices. Stay tuned for updates!">
+    <meta property="og:image" content="https://media.discordapp.net/attachments/1313967153329733773/1328441203833835530/image.png?ex=6786b6c8&is=67856548&hm=edfa867375549cf113dcdee75122b3d0c121806cffe5a0c36e84bb0430b7a95c&=&format=webp&quality=lossless&width=529&height=529">
+    <title>Vile.so API - Under Development</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: black;
             margin: 0;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .profile {
+            padding: 0;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            margin-bottom: 20px;
+            height: 100vh;
+            background: linear-gradient(to bottom, #000000, #582c4b);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden;
         }
-        .profile img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 2px solid rgb(255, 0, 0);
+
+        .container {
+            max-width: 600px;
+            position: relative;
         }
-        .profile .username {
-            margin-top: 10px;
-            font-size: 1.5rem;
-            font-family: 'Poppins', sans-serif;
-            font-weight: bold;
-        }
+
         h1 {
-            color: rgb(128, 0, 0);
-            font-size: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .button {
+            padding: 0.8rem 1.5rem;
+            background-color: #000000;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            border-radius: 5px;
             cursor: pointer;
-            margin-bottom: 20px;
-            text-decoration: underline;
+            transition: background-color 0.3s ease;
         }
-        video {
-            max-width: 90%;
-            height: auto;
-            outline: none;
+
+        .button:hover {
+            background-color: #0d2c24;
         }
-        audio {
-            margin-top: 10px;
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+            background: url('https://media.discordapp.net/attachments/1313967153329733773/1328441203833835530/image.png?ex=6786b6c8&is=67856548&hm=edfa867375549cf113dcdee75122b3d0c121806cffe5a0c36e84bb0430b7a95c&=&format=webp&quality=lossless&width=350&height=350') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .additional-content {
+            margin-top: 1rem;
+            font-size: 1.2rem;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <h1 onclick="window.location.href='https://example.com'">Criminality Network</h1>
-
-    <video id="video" controls>
-        <source src="videos.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <audio id="audio">
-        <source src="videos.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
+    <div class="logo"></div>
+    <div class="container">
+        <h1>We're Under Development</h1>
+        <p>
+            Our website is currently under development. We are working hard to deliver the best experience possible. 
+            Join our Discord and stay tuned for updates!
+        </p>
+        <p class="additional-content">
+            Looking to get a lot of OSINT APIs all in one? Well, you've come to the right place! 
+            Vile.so API offers a lot of APIs for extremely cheap. We are a multi-purpose OSINT API.
+        </p>
+        <button class="button" onclick="joinDiscord()">Join Our Discord</button>
+    </div>
 
     <script>
-        const video = document.getElementById('video');
-        const audio = document.getElementById('audio');
-
-        video.addEventListener('play', () => {
-            audio.currentTime = video.currentTime;
-            audio.play();
-        });
-
-        video.addEventListener('pause', () => {
-            audio.pause();
-        });
-
-        video.addEventListener('timeupdate', () => {
-            if (Math.abs(audio.currentTime - video.currentTime) > 0.1) {
-                audio.currentTime = video.currentTime;
-            }
-        });
-
-        video.addEventListener('seeking', () => {
-            audio.currentTime = video.currentTime;
-        });
-
-        video.addEventListener('ended', () => {
-            audio.pause();
-        });
+        function joinDiscord() {
+            window.location.href = "https://discord.gg/vileapi";
+        }
     </script>
 </body>
 </html>
