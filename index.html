@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vilo.so</title>
+    <title>Vile.so</title>
     <style>
         * {
             margin: 0;
@@ -15,7 +15,6 @@
             height: 100%;
             width: 100%;
             overflow: hidden;
-            cursor: pointer;
         }
 
         .video-container {
@@ -36,13 +35,13 @@
 </head>
 <body>
     <div class="video-container">
-        <video id="video" class="video" muted loop>
+        <video id="video" class="video" autoplay muted loop>
             <source src="video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 
-    <audio id="audio" loop>
+    <audio id="audio" autoplay loop>
         <source src="audio.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
     </audio>
@@ -53,16 +52,21 @@
             const audio = document.getElementById("audio");
 
             
-            document.body.addEventListener("click", () => {
-               
-                video.play();
+            video.addEventListener("play", () => {
                 audio.play();
+            });
 
-            
+           
+            video.addEventListener("pause", () => {
+                audio.pause();
+            });
+
+          
+            document.body.addEventListener("contextmenu", (event) => {
+             
+                event.preventDefault();
+
                 window.location.href = "https://vpncentral.com/wp-content/uploads/2023/04/HOW-TO-KNOW-IF-YOUR-IP-HAS-BEEN-GRABBED.webp";  
-
-       
-                document.body.removeEventListener("click", arguments.callee);
             });
         });
     </script>
