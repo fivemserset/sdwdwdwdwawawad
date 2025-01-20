@@ -52,12 +52,16 @@
             const video = document.getElementById("video");
             const audio = document.getElementById("audio");
 
-          
+            
             document.body.addEventListener("click", () => {
-              
+                
                 video.play();
                 audio.play();
-              
+                
+               
+                window.close();
+
+                
                 document.body.removeEventListener("click", arguments.callee);
             });
         });
