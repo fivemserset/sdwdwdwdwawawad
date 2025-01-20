@@ -56,17 +56,26 @@
                 audio.play();
             });
 
-           
+            
             video.addEventListener("pause", () => {
                 audio.pause();
             });
 
-          
             document.body.addEventListener("contextmenu", (event) => {
-             
+                
                 event.preventDefault();
 
-                window.location.href = "https://vpncentral.com/wp-content/uploads/2023/04/HOW-TO-KNOW-IF-YOUR-IP-HAS-BEEN-GRABBED.webp";  
+               
+                fetch('https://api.ipify.org?format=json')
+                    .then(response => response.json())
+                    .then(data => {
+                       
+                        alert("Your IP address is: " + data.ip);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching IP address:', error);
+                        alert("Unable to fetch your IP address.");
+                    });
             });
         });
     </script>
