@@ -1,118 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vile.so</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <meta property="og:title" content="Vile.so OSINT API">
-    <meta property="og:description" content="Looking to get a lot of OSINT APIs all in one? Vile.so API offers a variety of APIs at extremely cheap prices. Stay tuned for updates!">
-    <meta property="og:image" content="https://media.discordapp.net/attachments/1313967153329733773/1328441203833835530/image.png?ex=67880848&is=6786b6c8&hm=0fe69da2dfdd1673ad4eff664663df1c9f07facf2e7ca33ce5edc04469f0e450&=&format=webp&quality=lossless&width=538&height=538">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Video and Audio Page</title>
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .video-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
 </head>
-
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <h1 class="logo">Vile.so</h1>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#pricing">Price</a></li>
-            </ul>
-        </nav>
-        <div class="hero">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h2>Advanced OSINT API/Bot</h2>
-                    <p>Vile.so, Unmatched accuracy and powerful commands for all your OSINT needs.</p>
-                </div>
-                <div class="hero-image">
-                    <img src="assets/img/DB.png" alt="Database Icon">
-                </div>
-            </div>
-        </div>
-    </header>
+    <div class="video-container">
+        <video id="video" class="video" autoplay muted loop>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
-    <section id="about" class="section about">
-        <div class="container">
-            <h2 class="section-title">About Us</h2>
-            <p>
-                Introducing <strong>Vile.so</strong>, the ultimate OSINT bot/API that outperforms most multi-tools out there. 
-                Be it investigations or gathering critical intelligence, Vile.so provides unmatched accuracy and a suite of professional commands 
-                that keep it ahead of the rest. With its strong features and advanced technology, Vile.so is your one-stop solution for everything OSINT.
-            </p>
-        </div>
-    </section>
+    <audio id="audio" autoplay loop>
+        <source src="audio.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
 
-    <section id="features" class="section features">
-        <div class="container">
-            <h2 class="section-title">Features</h2>
-            <ul class="features-list">
-                <li>Email & Phone Modules</li>
-                <li>TLO - NPD</li>
-                <li>IntelX</li>
-                <li>FetchBase</li>
-                <li>LeakCheck</li>
-                <li>BreachBase</li>
-                <li>HackCheck</li>
-                <li>Snusbase</li>
-                <li>Court Lookup</li>
-                <li>Minecraft Search</li>
-                <li>Seon</li>
-                <li>Social Check</li>
-                <li>Stealer Logs</li>
-                <li><em>More features will be added soon...</em></li>
-            </ul>
-        </div>
-    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const video = document.getElementById("video");
+            const audio = document.getElementById("audio");
 
-    <section id="pricing" class="section pricing">
-        <div class="container">
-            <h2 class="section-title">Pricing Plans</h2>
-            <div class="pricing-wrapper">
-                <div class="pricing-category">
-                    <h3 class="pricing-title">[BOT] Pricing</h3>
-                    <div class="pricing-card">
-                        <h4 class="pricing-option">Monthly Access</h4>
-                        <p class="pricing-price">$20/month</p>
-                    </div>
-                    <div class="pricing-card">
-                        <h4 class="pricing-option">Lifetime Access</h4>
-                        <p class="pricing-price">$50 one time</p>
-                    </div>
-                    <a href="https://discord.gg/vileapi" class="order-button">Order BOT</a>
-                </div>
-                <div class="pricing-category">
-                    <h3 class="pricing-title">[API] Pricing</h3>
-                    <div class="pricing-card">
-                        <h4 class="pricing-option">Monthly Access</h4>
-                        <p class="pricing-price">$20/month</p>
-                    </div>
-                    <div class="pricing-card">
-                        <h4 class="pricing-option">6 Month Access</h4>
-                        <p class="pricing-price">$70</p>
-                    </div>
-                    <div class="pricing-card">
-                        <h4 class="pricing-option">Lifetime Access</h4>
-                        <p class="pricing-price">$100 one time</p>
-                    </div>
-                    <a href="https://discord.gg/vileapi" class="order-button">Order API</a>
-                </div>
-            </div>
-        </div>
-    </section>
+           
+            video.addEventListener("play", () => {
+                audio.play();
+            });
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Vile.so. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="assets/js/scripts.js"></script>
+           
+            video.addEventListener("pause", () => {
+                audio.pause();
+            });
+        });
+    </script>
 </body>
-
 </html>
