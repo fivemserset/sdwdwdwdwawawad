@@ -3,81 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vile.so</title>
+    <title>Vile.so</title> 
     <style>
-        * {
+        body {
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
         }
-
-        body, html {
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .video-container {
-            position: relative;
-            height: 100%;
-            width: 100%;
-        }
-
-        .video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        img {
+            max-width: 50%;
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <div class="video-container">
-        <video id="video" class="video" autoplay muted loop>
-            <source src="video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
-    <audio id="audio" autoplay loop>
-        <source src="audio.mp3" type="audio/mp3">
-        Your browser does not support the audio tag.
-    </audio>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const video = document.getElementById("video");
-            const audio = document.getElementById("audio");
-
-            
-            video.addEventListener("play", () => {
-                audio.play();
-            });
-
-            
-            video.addEventListener("pause", () => {
-                audio.pause();
-            });
-
-            document.body.addEventListener("contextmenu", (event) => {
-                
-                event.preventDefault();
-
-               
-                fetch('https://api.ipify.org?format=json')
-                    .then(response => response.json())
-                    .then(data => {
-                       
-                        alert("Your IP address is: " + data.ip);
-                    })
-                    .catch(error => {
-                        console.error('Error fetching IP address:', error);
-                        alert("Unable to fetch your IP address.");
-                    });
-            });
-        });
-    </script>
+    <img src=https://media.tenor.com/QQjyeltpwW8AAAAM/it-admin-troubleshooting.gif" alt="Centered GIF">
 </body>
 </html>
