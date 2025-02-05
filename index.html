@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    <video id="video" controls autoplay>
+    <video id="video" muted autoplay playsinline>
         <source src="tech.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -28,14 +28,27 @@
     <script>
         const video = document.getElementById("video");
         const audio = document.getElementById("audio");
-        
-        video.onplay = () => {
-            audio.play();
-        };
-        
-        video.onpause = () => {
+
+        // Ensure video is muted initially (some browsers block autoplay with audio)
+        video.muted = true;
+
+        video.addEventListener("canplay", () => {
+            video.play();
+        });
+
+        video.addEventListener("play", () => {
+            audio.currentTime = video.currentTime; // Sync audio
+            audio.play().catch(err => console.log("Audio play blocked:", err));
+        });
+
+        video.addEventListener("pause", () => {
             audio.pause();
-        };
+        });
+
+        // Unmute video when user interacts (fix autoplay restrictions)
+        document.body.addEventListener("click", () => {
+            video.muted = false;
+        });
     </script>
 </body>
 </html>
