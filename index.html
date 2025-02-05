@@ -5,64 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vile.so</title>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            overflow: hidden;
+        }
+        video {
+            position: absolute;
+            width: 100vw;
             height: 100vh;
-            background: url('https://1800.sh/users/users/bg.gif') no-repeat center center/cover;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            cursor: pointer;
-        }
-        .profile-container {
-            text-align: center;
-        }
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid white;
-        }
-        .username {
-            margin-top: 10px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .description {
-            margin-top: 10px;
-            font-size: 18px;
-            font-style: italic;
+            object-fit: cover;
         }
     </style>
-    <script>
-        let titles = ["vile.so ", "so vile", "skids", "/comcrip"];
-        let index = 0;
-        function changeTitle() {
-            document.title = titles[index];
-            index = (index + 1) % titles.length;
-        }
-        setInterval(changeTitle, 3000);
-
-        document.addEventListener("click", function playAudioOnce() {
-            let audio = document.getElementById("audio");
-            audio.play();
-            document.removeEventListener("click", playAudioOnce); 
-        });
-    </script>
 </head>
 <body>
-    <div class="profile-container">
-        <img src="https://i.pinimg.com/736x/18/f4/2a/18f42afe650fedf21e6e412bf1afaaf3.jpg" alt="Profile Picture" class="profile-pic">
-        <div class="username">кл</div>
-        <div class="description">widdaly so vile.</div>
-        <audio id="audio" loop>
-            <source src="audio (4).mp3" type="audio/mpeg">
-            Your browser does not support the audio tag.
-        </audio>
-    </div>
+    <video id="video" controls autoplay>
+        <source src="tech.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <audio id="audio" src="tech.mp3"></audio>
+    
+    <script>
+        const video = document.getElementById("video");
+        const audio = document.getElementById("audio");
+        
+        video.onplay = () => {
+            audio.play();
+        };
+        
+        video.onpause = () => {
+            audio.pause();
+        };
+    </script>
 </body>
 </html>
