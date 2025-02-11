@@ -2,52 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/star.css">
+    <script src="/js/antinspect.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="0e3129054fa97055e1fdc294-|49"></script>
+    <body onload="document.body.style.opacity='1'" class="wallpaper">
     <title>vile.so</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
+        @font-face {
+            font-family: 'Minecraftia';
+            src: url('Minecraftia.ttf') format('truetype');
         }
-        video {
-            position: absolute;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
+
+        @keyframes sparkling {
+            0% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.2;
+            }
         }
+
+        .sparkle-text {
+            animation: sparkling 2s infinite;
+        }
+
+        .navigation a {
+            text-shadow: 0px 0px 16.5px white;
+        }
+
+        .sparkle-text {
+            animation: sparkling 2s infinite;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: 'Minecraftia', sans-serif;
+            font-size: 24px;
+            z-index: 9999;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
-    <video id="video" muted autoplay playsinline>
-        <source src="tech.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <audio id="audio" src="tech.mp3"></audio>
+    <div id="overlay">
+        <div>
+            <p>Click to enter...</p>
+        </div>
+    </div>
+
+    <div class="galaxy">
+        <div class="stars1"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+
+    <div class="container">
+        <h1 class="title">Vile.so</h1>
+        <div class="profiles">
+            
+            <a href="https://t.me/itsyaboykl" class="profile-link">
+                <div class="profile">
+                    <img src="https://i.pinimg.com/736x/4f/f8/b7/4ff8b751715f1713c8ecb93b1fecbe29.jpg" alt="Mr.C">
+                    <p>@kl</p>
+                </div>
+            </a>
+            <a href="https://t.me/swatcalling" class="profile-link">
+              <div class="profile">
+                  <img src="https://media.discordapp.net/attachments/1338959769247154278/1339009751710699520/image.png?ex=67ad2982&is=67abd802&hm=0e030177e518050149eaa51a4f3db96aad785965cbc6ee2aea066c495b278c42&=&format=webp&quality=lossless" alt="Mr.C">
+                  <p>@s_x</p>
+              </div>
+          </a>
+
+
+    </div>
     
+
+    <div id="bottom-left">
+        © <a href="https://t.me/tareanc" target="_blank" style="color:white; text-decoration: none;">tare</a> | <a
+            href="https://tare.sh" target="_blank" style="color:white; text-decoration: none;">Tare</a> | 2025
+    </div>
+
     <script>
-        const video = document.getElementById("video");
-        const audio = document.getElementById("audio");
-
-        // Ensure video is muted initially (some browsers block autoplay with audio)
-        video.muted = true;
-
-        video.addEventListener("canplay", () => {
-            video.play();
-        });
-
-        video.addEventListener("play", () => {
-            audio.currentTime = video.currentTime; // Sync audio
-            audio.play().catch(err => console.log("Audio play blocked:", err));
-        });
-
-        video.addEventListener("pause", () => {
-            audio.pause();
-        });
-
-        // Unmute video when user interacts (fix autoplay restrictions)
-        document.body.addEventListener("click", () => {
-            video.muted = false;
+        document.getElementById("overlay").addEventListener("click", function() {
+            document.getElementById("overlay").style.display = "none";
+            var audio = new Audio('audio.mp3');
+            audio.volume = 0.3;
+            audio.play();
         });
     </script>
 </body>
